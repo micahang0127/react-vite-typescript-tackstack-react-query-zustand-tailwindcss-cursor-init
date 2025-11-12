@@ -1,8 +1,7 @@
 import { createRoot } from 'react-dom/client';
-import './index.css';
 import { createRouter, RouterProvider } from '@tanstack/react-router';
+import './assets/css/index.css';
 import { routeTree } from './routeTree.gen';
-import './index.css';
 import { StrictMode } from 'react';
 
 // 새 라우터 인스턴스 만들기

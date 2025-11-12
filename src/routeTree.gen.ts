@@ -9,10 +9,34 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as Menu4RouteImport } from './routes/menu4'
+import { Route as Menu3RouteImport } from './routes/menu3'
+import { Route as Menu2RouteImport } from './routes/menu2'
+import { Route as Menu1RouteImport } from './routes/menu1'
 import { Route as R500RouteImport } from './routes/500'
 import { Route as R404RouteImport } from './routes/404'
 import { Route as IndexRouteImport } from './routes/index'
 
+const Menu4Route = Menu4RouteImport.update({
+  id: '/menu4',
+  path: '/menu4',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Menu3Route = Menu3RouteImport.update({
+  id: '/menu3',
+  path: '/menu3',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Menu2Route = Menu2RouteImport.update({
+  id: '/menu2',
+  path: '/menu2',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Menu1Route = Menu1RouteImport.update({
+  id: '/menu1',
+  path: '/menu1',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const R500Route = R500RouteImport.update({
   id: '/500',
   path: '/500',
@@ -33,34 +57,86 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/404': typeof R404Route
   '/500': typeof R500Route
+  '/menu1': typeof Menu1Route
+  '/menu2': typeof Menu2Route
+  '/menu3': typeof Menu3Route
+  '/menu4': typeof Menu4Route
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/404': typeof R404Route
   '/500': typeof R500Route
+  '/menu1': typeof Menu1Route
+  '/menu2': typeof Menu2Route
+  '/menu3': typeof Menu3Route
+  '/menu4': typeof Menu4Route
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/404': typeof R404Route
   '/500': typeof R500Route
+  '/menu1': typeof Menu1Route
+  '/menu2': typeof Menu2Route
+  '/menu3': typeof Menu3Route
+  '/menu4': typeof Menu4Route
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/404' | '/500'
+  fullPaths: '/' | '/404' | '/500' | '/menu1' | '/menu2' | '/menu3' | '/menu4'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/404' | '/500'
-  id: '__root__' | '/' | '/404' | '/500'
+  to: '/' | '/404' | '/500' | '/menu1' | '/menu2' | '/menu3' | '/menu4'
+  id:
+    | '__root__'
+    | '/'
+    | '/404'
+    | '/500'
+    | '/menu1'
+    | '/menu2'
+    | '/menu3'
+    | '/menu4'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   R404Route: typeof R404Route
   R500Route: typeof R500Route
+  Menu1Route: typeof Menu1Route
+  Menu2Route: typeof Menu2Route
+  Menu3Route: typeof Menu3Route
+  Menu4Route: typeof Menu4Route
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/menu4': {
+      id: '/menu4'
+      path: '/menu4'
+      fullPath: '/menu4'
+      preLoaderRoute: typeof Menu4RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/menu3': {
+      id: '/menu3'
+      path: '/menu3'
+      fullPath: '/menu3'
+      preLoaderRoute: typeof Menu3RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/menu2': {
+      id: '/menu2'
+      path: '/menu2'
+      fullPath: '/menu2'
+      preLoaderRoute: typeof Menu2RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/menu1': {
+      id: '/menu1'
+      path: '/menu1'
+      fullPath: '/menu1'
+      preLoaderRoute: typeof Menu1RouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/500': {
       id: '/500'
       path: '/500'
@@ -89,6 +165,10 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   R404Route: R404Route,
   R500Route: R500Route,
+  Menu1Route: Menu1Route,
+  Menu2Route: Menu2Route,
+  Menu3Route: Menu3Route,
+  Menu4Route: Menu4Route,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

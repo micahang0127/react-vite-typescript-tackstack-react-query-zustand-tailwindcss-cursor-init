@@ -1,8 +1,8 @@
 import * as React from 'react';
-import NotFound from '@/components/common/error/not-found';
-import ServerError from '@/components/common/error/server-error';
 import { Outlet, createRootRoute } from '@tanstack/react-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import NotFound from '@/components/common/error/not-found';
+import ServerError from '@/components/common/error/server-error';
 
 const queryClient = new QueryClient({
   defaultOptions: {

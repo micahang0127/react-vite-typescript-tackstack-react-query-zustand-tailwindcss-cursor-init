@@ -1,5 +1,5 @@
 const PageFooterSection = () => {
-  return <h1>footer</h1>;
+  return <></>;
 };
 
 export default PageFooterSection;
